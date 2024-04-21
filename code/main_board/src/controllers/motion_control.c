@@ -37,7 +37,7 @@ esp_err_t init_motion_control(bool reversed)
     }
 
     err = write_motor_speed_rad_s(0.0, 0.0, 0.0);
-    if (err) {
+    if (err) { 
         ESP_ERROR_CHECK_WITHOUT_ABORT(err);
         return err;
     }
@@ -240,7 +240,7 @@ static pose_t apply_reverse_transformation(const pose_t *pose, bool reversed_sid
     } else {
         reversed_pose.x = -pose->x;
         reversed_pose.y = pose->y;
-        reversed_pose.theta = fmodf(M_PI - pose->theta, 2.0 * M_PI);
+        reversed_pose.theta = pose->theta; //fmodf( - pose->theta, 2.0 * M_PI);
     }
     return reversed_pose;
 }

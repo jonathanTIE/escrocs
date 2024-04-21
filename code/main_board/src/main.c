@@ -36,6 +36,7 @@ void app_main() {
     display_initialization_status("us ctrl", init_us_controller());
     display_initialization_status("Motor board", init_motor_board_v3());
     display_initialization_status("Peripherals", init_peripherals());
+    display_initialization_status("stepper board", init_stepper_board());
 
     char *table_sides[] = { "Left", "Right" };
     int is_reversed = menu_pick_item("Table side", table_sides, 2);

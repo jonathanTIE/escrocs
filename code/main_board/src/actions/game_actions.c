@@ -122,13 +122,7 @@ struct GAME_ACTION_OUTPUT_STRUCT_NAME(sleep) game_action_sleep(struct GAME_ACTIO
 struct GAME_ACTION_OUTPUT_STRUCT_NAME(print) game_action_print(struct GAME_ACTION_ARGUMENTS_STRUCT_NAME(print) args)
 {
     ESP_LOGI(TAG, "%s", args.message);
-    if(strlen(args.message) < 30)
-    {
-        lcd_printf(1, args.message);
-    }
-    else {
-        lcd_printf(1, "UNPRINTED LENGHTY");
-    }
+    lcd_printf(1, args.message);
     struct GAME_ACTION_OUTPUT_STRUCT_NAME(print) result;
     return result;
 }
